@@ -1,0 +1,290 @@
+:root {
+    --sidebar-bg: #1e293b;
+    --sidebar-active: #334155;
+    --primary-navy: #0f172a;
+    --accent-blue: #2563eb;
+    --bg-body: #f8fafc;
+    --text-muted: #64748b;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    color: #1e293b;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    background-color: var(--sidebar-bg);
+    min-height: 100vh;
+    width: 280px;
+    position: fixed;
+    left: 0; top: 0;
+    padding: 1.5rem 0;
+    color: white;
+    z-index: 1050;
+    transition: all 0.3s ease;
+}
+
+.sidebar-brand {
+    padding: 0 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo {
+    background: white;
+    color: var(--primary-navy);
+    width: 35px; height: 35px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+}
+
+.sidebar-section-title {
+    padding: 1rem 1.5rem 0.5rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    gap: 12px;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link:hover, .sidebar-link.active {
+    background-color: var(--sidebar-active);
+    color: white;
+    border-left-color: var(--accent-blue);
+}
+
+.class-selector {
+    margin: 0.5rem 1.5rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 8px;
+    padding: 0.5rem;
+    width: calc(100% - 3rem);
+    outline: none;          
+    box-shadow: none;
+}
+
+.class-selector option {
+    color: #334155;
+    background-color: white;
+}
+
+.main-content {
+    margin-left: 280px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.top-nav-mobile {
+    display: none;
+    background: white;
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 1040;
+}
+
+.hero-banner {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    border-radius: 20px;
+    padding: 2.5rem;
+    color: white;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-banner::after {
+    content: "\F418";
+    font-family: "bootstrap-icons";
+    position: absolute;
+    right: -20px; bottom: -20px;
+    font-size: 10rem;
+    opacity: 0.1;
+}
+
+.card-stats {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 1rem;
+    color: white;
+    height: 100%;
+}
+
+.card-white {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+}
+
+.student-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.student-item:last-child { border-bottom: none; }
+
+.avatar {
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    margin-right: 12px;
+    object-fit: cover;
+}
+
+.badge-alert {
+    background-color: #fee2e2;
+    color: #ef4444;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.badge-danger-custom {
+    background-color: #fef2f2;
+    color: #dc2626;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 1px solid #fecaca;
+}
+
+.attendance-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.submenu{
+    padding-left: 3rem;
+    font-size: 0.85rem;
+    position: relative;
+}
+
+.btn-status {
+    border: 1px solid #e2e8f0;
+    background: white;
+    color: var(--text-muted);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.status-input { display: none; }
+
+.status-input:checked + .btn-status.hadir { background-color: #4beb78; color: white; border-color: #4beb78; }
+.status-input:checked + .btn-status.izin { background-color: #f1bd4e; color: white; border-color: #f1bd4e; }
+.status-input:checked + .btn-status.sakit { background-color: #7194f5; color: white; border-color: #7194f5; }
+.status-input:checked + .btn-status.absen { background-color: #f13838; color: white; border-color: #f13838; }
+
+.input-score {
+    width: 80px;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.global-task-select {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    font-weight: 600;
+    color: var(--accent-blue);
+}
+
+.rerata-badge {
+    background: #f0fdf4;
+    color: #16a34a;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    min-width: 55px;
+    text-align: center;
+}
+
+.btn-export {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 8px 16px;
+    transition: all 0.2s;
+}
+
+.btn-export:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.table-wali th {
+    background-color: #f8fafc;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+}
+
+.table-wali td {
+    vertical-align: middle;
+    font-size: 0.9rem;
+}
+
+.score-cell {
+    text-align: center;
+    font-weight: 600;
+}
+
+.score-good { color: #16a34a; }
+.score-medium { color: #f59e0b; }
+.score-poor { color: #dc2626; }
+
+.row-danger {
+    background-color: #fef2f2 !important;
+}
+
+#loading-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: white; display: flex; align-items: center;
+    justify-content: center; z-index: 9999;
+}
+
+@media (max-width: 992px) {
+    .sidebar { transform: translateX(-100%); }
+    .sidebar.active { transform: translateX(0); }
+    .main-content { margin-left: 0; }
+    .top-nav-mobile { display: flex; justify-content: space-between; align-items: center; }
+    .table-wali { font-size: 0.75rem; }
+    .table-wali th, .table-wali td { padding: 0.5rem; }
+}
+
+
